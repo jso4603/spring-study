@@ -16,6 +16,7 @@
 	<!-- 2. /resources/** 경로에 있는 건 DispatcherServlet이 가로채지 말고 /resources/ location에서 검색해라. -->
 	<resources mapping="/resources/**" location="/resources/" />
 
+	<!-- prefix + return 받은 이름 + suffix  ex) /WEB-INF/views/ + home + .jsp  -->
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<beans:property name="prefix" value="/WEB-INF/views/" />

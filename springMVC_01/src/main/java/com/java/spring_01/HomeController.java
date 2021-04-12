@@ -15,7 +15,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * Handles requests for the application home page.
  */
 
-// 4. DispatcherServlet이 작업을 한 후, Controller로 보냄(Annotation으로 Controller를 명시)
+// 4. DispatcherServlet이 작업을 한 후, Controller가 받음(Annotation으로 Controller를 명시)
+// 5. 컨트롤러는 요청에 대한 작업을 한 후 뷰 쪽으로 데이터를 전달
 @Controller
 public class HomeController {
 
