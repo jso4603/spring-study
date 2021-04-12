@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+
+	<!-- autoproxy : proxy를 자동으로 생성  -->
+	<aop:aspectj-autoproxy />
+	<bean id="logAop" class="com.java.ex.LogAop" />
+
+	<bean id="student" class="com.java.ex.Student">
+		<property name="name" value="장상옥" />
+		<property name="age" value="31" />
+		<property name="gradeNum" value="3" />
+		<property name="classNum" value="1" />
+	</bean>
+
+	<bean id="worker" class="com.java.ex.Worker">
+		<property name="name" value="장상옥" />
+		<property name="age" value="31" />
+		<property name="job" value="programmer" />
+	</bean>
+
+</beans>
