@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+
+	<bean id="logAop" class="com.java.ex.LogAop" />
+
+	<aop:config>
+
+		<!-- Around : 메소드 실행 전/후 및 Exception 발생 시 adivce 실행  -->
+		<aop:aspect id="logger" ref="logAop">
+			<aop:pointcut id="publicM" expression="within(com.java.ex.*)"/>
+			<aop:around pointcut-ref="publicM" method="loggerAop"/>
+		</aop:aspect>
+
+		<!-- Before : 메소드 실행 전에 adivce 실행  -->
+		<aop:aspect id="logger" ref="logAop">
+			<aop:pointcut id="publicM" expression="within(com.java.ex.*)"/>
+			<aop:before pointcut-ref="publicM" method="beforeAdvice"/>
+		</aop:aspect>
+
+		<!-- After : 메소드 실행 후에 adivce 실행  -->
+		<aop:aspect id="logger" ref="logAop">
+			<aop:pointcut id="publicM" expression="within(com.java.ex.*)"/>
+			<aop:after pointcut-ref="publicM" method="afterAdvice"/>
+		</aop:aspect>
+
+	</aop:config>
+
+	<bean id="student" class="com.java.ex.Student">
+		<property name="name" value="장상옥" />
+		<property name="age" value="31" />
+		<property name="gradeNum" value="3" />
+		<property name="classNum" value="1" />
+	</bean>
+
+	<bean id="worker" class="com.java.ex.Worker">
+		<property name="name" value="장상옥" />
+		<property name="age" value="31" />
+		<property name="job" value="programmer" />
+	</bean>
+
+</beans>
